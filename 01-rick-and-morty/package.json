@@ -1,0 +1,29 @@
+{
+    "name": "rick-and-morty-vut-2022",
+    "version": "1.0.0",
+    "description": "Rick and Morty characters",
+    "keywords": [
+        "react 18",
+        "react",
+        "Rick and Morty",
+        "javascript"
+    ],
+    "main": "src/index.js",
+    "dependencies": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^2.2.0",
+        "vite": "^3.2.4"
+    },
+    "scripts": {
+        "start": "vite"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
+}
