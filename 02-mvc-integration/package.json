@@ -1,0 +1,29 @@
+{
+    "name": "rick-and-morty-vut-2022",
+    "version": "1.0.0",
+    "description": "React + MVC Integration",
+    "keywords": [],
+    "main": "index.js",
+    "dependencies": {
+        "@vitejs/plugin-react": "^2.2.0",
+        "awesome-debounce-promise": "^2.1.0",
+        "axios": "^1.2.0",
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "grommet": "^2.28.0",
+        "grommet-icons": "^4.8.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "styled-components": "^5.3.6",
+        "vite": "^3.2.4"
+    },
+    "scripts": {
+        "start": "vite"
+    },
+    "devDependencies": {
+        "eslint": "^8.28.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.6.1",
+        "eslint-plugin-react": "^7.31.11"
+    }
+}

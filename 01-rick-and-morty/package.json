@@ -8,7 +8,7 @@
         "Rick and Morty",
         "javascript"
     ],
-    "main": "src/index.js",
+    "main": "./index.jsx",
     "dependencies": {
         "react": "18.2.0",
         "react-dom": "18.2.0"

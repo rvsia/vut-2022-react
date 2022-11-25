@@ -1,0 +1,146 @@
+html,
+body,
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans';
+}
+
+.genres {
+    display: flex;
+    gap: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    flex-wrap: wrap;
+}
+
+.gallery {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+header {
+    background: gold;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+}
+
+header span {
+    color: goldenrod;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background: gray;
+    min-width: 100%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 0.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.container .description {
+    flex-grow: 1;
+    margin-top: 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    justify-self: flex-end;
+    margin-bottom: 1rem;
+}
+
+img {
+    object-fit: cover;
+}
+
+.card h4 {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+button {
+    display: inline-block;
+    outline: 0;
+    appearance: none;
+    padding: 0px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: rgb(6 22 33 / 30%) 0px 1px 2px;
+    font-size: 14px;
+    font-weight: 400;
+    height: 36px;
+    transition: all 150ms ease-in-out 0s;
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255);
+    border: none;
+}
+
+textarea {
+    resize: none;
+    color: rgb(36, 35, 42);
+    min-height: 1.75rem;
+    border-radius: 0.25rem;
+    border: 2px solid transparent;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    background: rgb(251, 251, 251);
+    margin-bottom: 0.25rem;
+}
+
+textarea:focus {
+    border: 2px solid rgb(124, 138, 255);
+}
+
+input {
+    color: rgb(36, 35, 42);
+    font-size: 1rem;
+    min-height: 1.75rem;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border: 2px solid transparent;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    background: rgb(251, 251, 251);
+    transition: all 0.1s ease 0s;
+    width: calc(100% - 1rem);
+}
+
+input:focus {
+    border: 2px solid rgb(124, 138, 255);
+}
+
+.genre {
+    background-color: rgb(255, 255, 255);
+    padding: 0.5rem 0.5rem;
+}
+
+.genre.active {
+    box-shadow: 0px 3px 7px #02020c7c;
+    transform: translateY(-2px);
+}
