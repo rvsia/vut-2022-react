@@ -1,0 +1,161 @@
+openapi: 3.0.3
+info:
+  title: BMD - Best Movie Database
+  description: |-
+    Best Movie Database allows users to list, create, update and remove movies.
+  version: 0.0.1
+paths:
+  /genres:
+    get:
+      summary: Get all genres
+      description: Get all movies genres
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Genres'
+  /movies:
+    get:
+      summary: Get movies
+      description: Get movies
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      summary: Create a movie
+      description: Create a new movie
+      requestBody:
+          description: Movie to create
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoviesResponse'
+  /movies/{id}:
+    get:
+      summary: Get specific movie
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: id of the requested movie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A movie object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+    delete:
+      summary: Remove specific movie
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: id of the deleted movie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A movies array
+          content:
+            application/json:
+              schema:
+                  type: array
+                  items:
+                    "$ref": "#/components/schemas/Movie"
+    post:
+      summary: Update specific movie
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: id of the deleted movie
+          schema:
+            type: string
+      requestBody:
+          description: Movie to update
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+      responses:
+        '200':
+          description: A movie
+          content:
+            application/json:
+              schema:
+                  type: array
+                  items:
+                    "$ref": "#/components/schemas/Movie"
+components:
+  schemas:
+    MoviesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Movie"
+        meta:
+          type: object
+          properties:
+            total:
+              type: number
+            perPage:
+              type: number
+            page:
+              type: number
+    Genres:
+      type: string
+      enum: 
+        - Comedy
+        - Fantasy
+        - Crime
+        - Drama
+        - Music
+        - Adventure
+        - History
+        - Thriller
+        - Animation
+        - Family
+        - Mystery
+        - Biography
+        - Action
+        - Film-Noir
+        - Romance
+        - Sci-Fi
+        - War
+        - Western
+        - Horror
+        - Musical
+        - Sport
+    Movie:
+      type: object
+      required:
+        - id
+        - description
+        - title
+        - genres
+      properties: 
+        id: 
+          type: string
+        description:
+          type: string
+        title:
+          type: string
+        genres:
+          "$ref": "#/components/schemas/Genres"
+        posterUrl:
+          type: string
+          format: url
