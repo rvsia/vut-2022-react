@@ -2,7 +2,7 @@
 
 A small React application to demonstrate frontend and backend connection via HTTP requests.
 
-## Install dependencies
+## Install dependencies
 
 ```bash
 npm install
