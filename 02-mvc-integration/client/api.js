@@ -9,3 +9,7 @@ export const getMovies = ({page, search, genre} = {}) => axios.get("http://local
 });
 
 export const removeMovie = (id) => axios.delete(`http://localhost:3000/movies/${id}`);
+
+export const updateMovie = (movie) => axios.post(`http://localhost:3000/movies/${movie.id}`, movie);
+
+export const addMovie = (movie) => axios.post("http://localhost:3000/movies/", movie);

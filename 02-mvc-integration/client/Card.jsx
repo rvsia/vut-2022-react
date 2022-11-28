@@ -1,23 +1,37 @@
 import React, { useState } from "react";
 
+import GenreSelector from "./GenreSelector.jsx";
+
 import none from "./none.jpeg";
 
-const Card = ({ title, posterUrl, plot, genres, removeMovie, id }) => {
+const Card = ({ title, posterUrl, plot, genres, removeMovie, id, allGenres, editMovie }) => {
 	const [isEditing, setEditing] = useState(false);
 
+	const onSubmit = async (event) => {
+		event.preventDefault();
+		setEditing(false);
+		editMovie({
+			id,
+			title: event.target.title.value,
+			plot: event.target.plot.value,
+			posterUrl: event.target.posterUrl.value,
+			genres: [...event.target.genres.children].filter(option => option.selected).map(option => option.value),
+		});
+	};
+
 	if (isEditing) {
-		return (<div className="card">
-			<img src={posterUrl} alt={title} />
+		return (<form className="card" onSubmit={onSubmit}>
 			<div className="container">
-				<h4><input defaultValue={title}/></h4>
-				<p>{genres.join(", ")}</p>
-				<textarea className='description' defaultValue={plot} />
+				<h4><input defaultValue={posterUrl} placeholder="poster url" name="posterUrl"/></h4>
+				<h4><input placeholder="title" defaultValue={title} name="title"/></h4>
+				<GenreSelector genres={allGenres} initialGenres={genres} />
+				<textarea className='description' placeholder="plot" name="plot" defaultValue={plot} />
 				<div className='actions'>
-					<button>Save</button>
+					<button type="submit">Save</button>
 					<button onClick={() => setEditing(false)}>Cancel</button>
 				</div>
 			</div>
-		</div>);
+		</form>);
 	}
 
 	return (<div className="card">

@@ -2180,13 +2180,16 @@ const removeMovie = (id) => {
 const addMovie = (movie) => {
 	lastId += 1;
 
-	database.push({ ...movie, id: lastId });
+	const newMovie = { ...movie, id: lastId };
 
-	return database;
+	database.push(newMovie);
+
+	return newMovie;
 };
 
 const updateMovie = (id, movie) => {
-	database = database.map(original => original.id !== id ? original : { ...original, ...movie });
+	console.log(movie);
+	database = database.map(original => original.id !== Number(id) ? original : { ...original, ...movie });
 
 	return database;
 };

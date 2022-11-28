@@ -1,7 +1,8 @@
 const express = require("express");
 var cors = require("cors");
+var bodyParser = require("body-parser");
 
-const { getAllMovies, getGenres, removeMovie } = require("./database");
+const { getAllMovies, getGenres, removeMovie, updateMovie, addMovie } = require("./database");
 
 const app = express();
 const PORT = 3000;
@@ -16,8 +17,12 @@ const PER_PAGE = 20;
 const run = async () => {
 	app.use(myLogger);
 	app.use(cors());
+	app.use( bodyParser.json() );       // to support JSON-encoded bodies
+	app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+		extended: true
+	}));
 
-	app.get("/genres", (req, res) => {
+	app.get("/genres", (_req, res) => {
 		return res.send(getGenres());
 	});
 
@@ -37,15 +42,15 @@ const run = async () => {
 	});
 
 	app.post("/movies", (req, res) => {
-		return res.send("POST HTTP method on user resource");
+		return res.send(addMovie(req.body));
 	});
 
 	app.get("/movies/:id", (req, res) => {
 		return res.send(getAllMovies().find(row => row.id === Number(req.params.id)));
 	});
 
-	app.put("/movies/:id", (req, res) => {
-		return res.send(getAllMovies().find(row => row.id === req.params.id));
+	app.post("/movies/:id", (req, res) => {
+		return res.send(updateMovie(req.params.id, req.body).find(row => row.id === Number(req.params.id)));
 	});
 
 	app.delete("/movies/:id", (req, res) => {

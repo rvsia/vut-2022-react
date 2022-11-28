@@ -82,6 +82,10 @@ img {
     object-fit: cover;
 }
 
+img.editing {
+    height: 50px;
+}
+
 .card h4 {
     margin-top: 1rem;
     margin-bottom: 0;
@@ -156,4 +160,25 @@ input:focus {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+select {
+    color: rgb(36, 35, 42);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border: 2px solid transparent;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    background: rgb(251, 251, 251);
+    transition: all 0.1s ease 0s;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+header {
+    display: flex;
+}
+
+header h1 {
+    flex-grow: 1;
 }
