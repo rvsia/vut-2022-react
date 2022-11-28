@@ -5,7 +5,7 @@ import { PER_PAGE } from "./constants";
 const Pagination = ({page, setPage, movies}) => {
 	const maxPage = Math.ceil(movies.meta.total / 20);
 
-	const start = page * PER_PAGE;
+	const start = page * PER_PAGE + 1;
 	const end = Math.min((page + 1) * PER_PAGE, movies.meta.total);
 
 	return (

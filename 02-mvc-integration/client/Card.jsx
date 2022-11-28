@@ -7,7 +7,7 @@ const Card = ({ title, posterUrl, plot, genres, removeMovie, id }) => {
 
 	if (isEditing) {
 		return (<div className="card">
-			<img src={posterUrl} alt={title} onError={event => event.target.src = none} />
+			<img src={posterUrl} alt={title} />
 			<div className="container">
 				<h4><input defaultValue={title}/></h4>
 				<p>{genres.join(", ")}</p>

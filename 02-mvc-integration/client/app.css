@@ -52,6 +52,7 @@ header span {
     aspect-ratio: 1 / 1;
     background: gray;
     min-width: 100%;
+    background-image: url('/client/none.jpeg');
 }
 
 .card:hover {

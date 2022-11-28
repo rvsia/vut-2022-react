@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3000;
 
 const myLogger = function (req, res, next) {
-	console.log(req.method, " - ", req.url, " - ");
+	console.log(req.method, " - ", req.url);
 	next();
 };
 
@@ -22,7 +22,7 @@ const run = async () => {
 	});
 
 	app.get("/movies", (req, res) => {
-		const { page, search, genre } = req.query;
+		const { page = 0, search, genre } = req.query;
 
 		let results = getAllMovies({ page, search, genre });
 
