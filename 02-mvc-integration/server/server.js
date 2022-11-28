@@ -32,7 +32,7 @@ const run = async () => {
 				perPage: PER_PAGE,
 				total: results.length
 			},
-			results: results.slice(page, (page + 1) * PER_PAGE)
+			results: results.slice(Number(page) * PER_PAGE, (Number(page) + 1) * PER_PAGE)
 		});
 	});
 

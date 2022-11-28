@@ -1,9 +1,12 @@
-import React, { useCallback, useDeferredValue, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 
 import "./app.css";
 import { getGenres, getMovies, removeMovie } from "./api";
 import Card from "./Card.jsx";
+import Pagination from "./Pagination.jsx";
+import Gallery from "./Gallery.jsx";
+import Header from "./Header.jsx";
 
 const App = () => {
 	const [loading, setLoading] = useState(true);
@@ -12,10 +15,6 @@ const App = () => {
 	const [page, setPage] = useState(0);
 	const [search, setSearch] = useState();
 	const [genre, setGenre] = useState();
-
-	const defferedSearch = useDeferredValue(search);
-
-	console.log(defferedSearch);
 
 	useEffect(() => {
 		Promise.all([getGenres(), getMovies({ page, search, genre })]).then(([{ data: genres }, { data: movies }]) => {
@@ -44,34 +43,50 @@ const App = () => {
 		}
 	}, [search, page, genre]);
 
+	const noMoviesFound = movies?.results.length === 0 || loading;
+
 	return (<main>
-		<header>
-			<h1>BMD <span>Best Movie Database</span></h1>
-		</header>
-		<div className="gallery">
-			<input placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
-		</div>
+		<Header />
+		<Gallery>
+			<input placeholder="Search" onChange={(e) => {
+				setPage(0);
+				setSearch(e.target.value);
+			}} />
+		</Gallery>
 		{loading && <div className="spinner">Loading...</div>}
 		{!loading && <div>
 			<div className="genres">
 				{genres.map(item => <button
 					className={`genre ${genre === item ? "active" : ""}`}
 					key={item}
-					onClick={() => setGenre(prev => prev === item ? null : item)}
+					onClick={() => {
+						setGenre(prev => prev === item ? null : item);
+						setPage(0);
+					}}
 				>
 					{item}
 				</button>)}
+				{!noMoviesFound && <Pagination
+					page={page}
+					movies={movies}
+					setPage={setPage}
+				/>}
 			</div>
-			<div className="gallery">
-				page {page + 1} of {Math.ceil(movies.meta.total / 20)} showing {movies.results.length} movies out of {movies.meta.total} 
-			</div>
-			<div className='gallery'>
+			<Gallery center>
 				{movies.results.map(movie => <Card
 					{...movie}
 					key={movie.id}
 					removeMovie={deleteMovie}
 				/>)}
-			</div>
+				{noMoviesFound && "No movies find."}
+			</Gallery>
+			{!noMoviesFound && <Gallery>
+				<Pagination
+					page={page}
+					movies={movies}
+					setPage={setPage}
+				/>
+			</Gallery>}
 		</div>}
 	</main >);
 };
