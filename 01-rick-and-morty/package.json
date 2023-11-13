@@ -11,7 +11,8 @@
     "main": "./index.jsx",
     "dependencies": {
         "react": "18.2.0",
-        "react-dom": "18.2.0"
+        "react-dom": "18.2.0",
+        "vite-plugin-mkcert": "^1.16.0"
     },
     "devDependencies": {
         "@vitejs/plugin-react": "^2.2.0",

@@ -16,7 +16,8 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "styled-components": "^5.3.6",
-        "vite": "^3.2.4"
+        "vite": "^3.2.4",
+        "vite-plugin-mkcert": "^1.16.0"
     },
     "scripts": {
         "start": "vite"

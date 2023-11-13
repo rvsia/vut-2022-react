@@ -1,6 +1,8 @@
 const express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser");
+const https = require("https");
+const fs = require("fs");
 
 const { getAllMovies, getGenres, removeMovie, updateMovie, addMovie } = require("./database");
 
@@ -57,10 +59,14 @@ const run = async () => {
 		return res.send(removeMovie(req.params.id));
 	});
 
-	app.listen(PORT, (error) => {
-		if (!error) { console.log("Server is Successfully Running, and App is listening on port " + PORT); }
-		else { console.log("Error occurred, server can't start", error); }
-	});
+	https
+		.createServer({
+			key: fs.readFileSync("cert.key"),
+			cert: fs.readFileSync("cert.crt"),
+		}, app)
+		.listen(PORT, ()=>{
+			console.log("Server is Successfully Running, and App is listening on port " + PORT);
+		});
 };
 
 run();

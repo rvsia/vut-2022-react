@@ -10,6 +10,21 @@ npm install
 
 ## Run backend
 
+### Instal SSL certificates
+
+For macOS (system-wide):
+
+Open up Keychain Access app.
+Select Certificates tab
+Click on login menu item in the sidebar.
+Drag and drop server.crt located in server to the list of items.
+new item named "Test CA" is created
+
+Double-click on the new item.
+Find SSL field and select Always trust
+
+### Run server
+
 Go to `server` folder and start server:
 
 ```bash
