@@ -5,19 +5,19 @@
     "keywords": [],
     "main": "index.js",
     "dependencies": {
-        "@vitejs/plugin-react": "^2.2.0",
+        "@vitejs/plugin-react": "^4.3.3",
         "awesome-debounce-promise": "^2.1.0",
-        "axios": "^1.2.0",
-        "body-parser": "^1.20.1",
+        "axios": "^1.7.8",
+        "body-parser": "^1.20.3",
         "cors": "^2.8.5",
-        "express": "^4.18.2",
-        "grommet": "^2.28.0",
-        "grommet-icons": "^4.8.0",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "styled-components": "^5.3.6",
-        "vite": "^3.2.4",
-        "vite-plugin-mkcert": "^1.16.0"
+        "express": "^4.21.1",
+        "grommet": "^2.42.0",
+        "grommet-icons": "^4.12.1",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "styled-components": "^6.1.13",
+        "vite": "^5.4.11",
+        "vite-plugin-mkcert": "^1.17.6"
     },
     "scripts": {
         "start": "vite"
