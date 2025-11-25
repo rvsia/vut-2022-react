@@ -1,11 +1,11 @@
 {
-    "name": "rick-and-morty-vut-2022",
+    "name": "dog-breed-vut-2025",
     "version": "1.0.0",
-    "description": "Rick and Morty characters",
+    "description": "Dog breeds picture",
     "keywords": [
         "react 18",
         "react",
-        "Rick and Morty",
+        "Dog breeds",
         "javascript"
     ],
     "main": "./index.jsx",
