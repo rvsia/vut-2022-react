@@ -5,19 +5,19 @@
     "keywords": [],
     "main": "index.js",
     "dependencies": {
-        "@vitejs/plugin-react": "^4.3.3",
+        "@vitejs/plugin-react": "^5.1.1",
         "awesome-debounce-promise": "^2.1.0",
-        "axios": "^1.7.8",
-        "body-parser": "^1.20.3",
+        "axios": "^1.13.2",
+        "body-parser": "^2.2.1",
         "cors": "^2.8.5",
-        "express": "^4.21.1",
-        "grommet": "^2.42.0",
-        "grommet-icons": "^4.12.1",
-        "react": "18.3.1",
-        "react-dom": "18.3.1",
-        "styled-components": "^6.1.13",
-        "vite": "^5.4.11",
-        "vite-plugin-mkcert": "^1.17.6"
+        "express": "^5.1.0",
+        "grommet": "^2.51.0",
+        "grommet-icons": "^4.14.0",
+        "react": "19.2.0",
+        "react-dom": "19.2.0",
+        "styled-components": "^6.1.19",
+        "vite": "^7.2.4",
+        "vite-plugin-mkcert": "^1.17.9"
     },
     "scripts": {
         "start": "vite"
@@ -26,6 +26,6 @@
         "eslint": "^8.28.0",
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-jsx-a11y": "^6.6.1",
-        "eslint-plugin-react": "^7.31.11"
+        "eslint-plugin-react": "^7.37.5"
     }
 }

@@ -17,7 +17,7 @@ For macOS (system-wide):
 Open up Keychain Access app.
 Select Certificates tab
 Click on login menu item in the sidebar.
-Drag and drop server.crt located in server to the list of items.
+Drag and drop cert.crt located in server to the list of items.
 new item named "Test CA" is created
 
 Double-click on the new item.
